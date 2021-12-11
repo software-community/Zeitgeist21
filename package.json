@@ -1,0 +1,14 @@
+{
+  "name": "zeitgeist",
+  "version": "1.0.0",
+  "description": "Official website for Zeitgeist.",
+  "main": "index.js",
+  "scripts": {
+    "css": "sass --watch --no-source-map --style compressed ./main/scss:./main/static/main/css ./main2/scss:./main2/static/main2/css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.45.0"
+  }
+}

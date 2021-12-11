@@ -1,0 +1,13 @@
+__pycache__/
+.env
+db.sqlite3
+node_modules/
+staticfiles/
+# scss/
+# package-lock.json
+# package.json
+
+.vscode
+.DS_Store
+**/*.pyc
+**/*.pyo

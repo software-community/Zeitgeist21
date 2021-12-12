@@ -29,7 +29,12 @@ pip install -r requirements.txt
 ```bash
 npm i
 ```
-7. Create a superuser
+7. Make Migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+8. Create a superuser
 ```bash
 python manage.py createsuperuser
 ```

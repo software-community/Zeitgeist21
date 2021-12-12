@@ -3,7 +3,7 @@
 ## Development setup
 Ensure `python3` and `node` is installed on the machine.
 
-1. Make a new virtual enviornment
+1. Make the  new virtual enviornment
 ```bash
 python -m <venv-name> <path>
 ```

@@ -1,4 +1,4 @@
-# Official Website of Zeitgeist'21, IIT Ropar
+# Official Website of Zeitgeist'22, IIT Ropar
 
 ## Development setup
 Ensure `python3` and `node` is installed on the machine.

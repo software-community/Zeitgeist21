@@ -12,3 +12,4 @@ package-lock.json
 **/*.pyc
 **/*.pyo
 
+populate.py

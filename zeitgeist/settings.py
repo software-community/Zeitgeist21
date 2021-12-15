@@ -61,9 +61,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
+    'rest_framework',
+
     'fontawesome_free',
     'main',
     'users',
+    'api',
 ]
 
 MIDDLEWARE = [

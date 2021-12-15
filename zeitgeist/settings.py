@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'fontawesome_free',
     'main',
     'users',
-    'CA,'
+    'CA',
     'api',
 ]
 

@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import *
+from .api_events import *
+from .api_user_activate import *
 
 urlpatterns = [
     path('events/all',APIEvent.as_view()),
     path('events/register-approve',APIEventRegisterApprove.as_view()),
     path('events/register',APIEventRegister.as_view()),
     path('events/payment',APIEventPayment.as_view()),
+
+    path('account/info',APIAccountInfo.as_view()),
+    path('account/info-update',APIAccountInfoUpdate.as_view()),
 ]

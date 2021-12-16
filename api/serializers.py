@@ -26,7 +26,3 @@ def UniqueTypeSerializer(events):
     if x.category.type not in arr:
       arr.append(x.category.type)
   return arr
-  # category = EventCategorySerializer(many=False, read_only=True)
-  # class Meta:
-  #   model = Event
-  #   fields = ['event_id', 'name', 'category', 'description', 'event_type', 'image', 'rulebook']

@@ -10,6 +10,6 @@ class CustomUserAdmin(UserAdmin):
     model = User
     list_display = ['id','email', 'username','mobile','zcode']
 
-CustomUserAdmin.fieldsets+=('Custom fields set', {'fields': ('mobile','zcode')}),('Activation', {'fields': ('active',)}),
+CustomUserAdmin.fieldsets+=('Details', {'fields': ('mobile','zcode','college','city')}),('Participation',{'fields': ('participation','total')}),('Activation', {'fields': ('active',)}),
 
 admin.site.register(User, CustomUserAdmin)

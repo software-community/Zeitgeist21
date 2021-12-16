@@ -178,6 +178,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SITE_ID = 1
 
+SOCIALACCOUNT_LOGIN_ON_GET = True
+ACCOUNT_LOGOUT_ON_GET = True
+
 # EMAIL
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

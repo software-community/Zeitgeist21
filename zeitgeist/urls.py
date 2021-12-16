@@ -16,10 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from allauth.account.views import logout
+
 urlpatterns = [
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
     path('api/', include('api.urls')),
-    path('Campus-Ambassador', include('CA.urls'))
+    path('Campus-Ambassador/', include('CA.urls')),
+
+    # Login/Logout
+    # Use /acounts/google/login/?next=/<url> to login
+    # Use /acounts/logout/?next=/<url> to logout
+    path('accounts/', include('allauth.socialaccount.providers.google.urls')),
+    path('accounts/logout/', logout, name="logout"),
 ]

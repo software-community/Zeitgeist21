@@ -20,6 +20,8 @@ from .api_user_activate import *
 
 urlpatterns = [
     path('events/all',APIEvent.as_view()),
+    path('events/tech',APIEvent.as_view(type="tech")),
+    path('events/cult',APIEvent.as_view(type="cult")),
     path('events/register-approve',APIEventRegisterApprove.as_view()),
     path('events/register',APIEventRegister.as_view()),
     path('events/payment',APIEventPayment.as_view()),

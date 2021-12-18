@@ -9,9 +9,15 @@ import json
 
 # Create your views here.
 class APIEvent(APIView):
+  type = None
   def get(self,request):
-    events = Event.objects.all()
-    eventsSER = EventSerializer(events, many=True)
+    if self.type=='tech':
+      events = Event.objects.all().filter(category__type='tech')
+    elif self.type=="cult":
+      events = Event.objects.all().filter(category__type='cult')
+    else:
+      events = Event.objects.all()
+    eventsSER = EventSerializer(events, many=True, context={"request":request})
     categorySER = UniqueCategorySerializer(events)
     typeSER = UniqueTypeSerializer(events)
     return Response({'categories':categorySER, 'types':typeSER, 'events':eventsSER.data})

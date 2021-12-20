@@ -18,8 +18,9 @@ from dotenv import load_dotenv
 
 import json
 
-ENV_PATH = os.path.join(".", ".env")
-load_dotenv(ENV_PATH)
+if os.environ.get('ENV')==None:
+    ENV_PATH = os.path.join(".", ".env")
+    load_dotenv(ENV_PATH)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -104,12 +105,22 @@ WSGI_APPLICATION = 'zeitgeist.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.environ.get('ENV')=='DEV':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get('DB_NAME'),
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASS')
+        }
+    }
 
 
 # Password validation
@@ -147,6 +158,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(os.environ.get('PUBLIC_ROOT'), 'static')
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(os.environ.get('PUBLIC_ROOT'), 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

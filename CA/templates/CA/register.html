@@ -6,9 +6,129 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Register</title>
+	<title>CA Register | Zeitgeist'22</title>
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="{% static 'main/img/logo/fav.svg' %}" />
+	<style>
+		* {
+			font-family: 'Poppins';
+			font-size: 1.1rem;
+		}
+
+		@media (max-width:770px) {
+			* {
+				font-size: 1rem !important;
+			}
+		}
+
+		body {
+			background-color: #222327;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			height: 100vh;
+			color: #ddd;
+		}
+
+		.campus-amb-header {
+			width: 100%;
+		}
+
+		label {
+			font-weight: 600;
+		}
+
+		input[type=text],
+		input[type=tel],
+		select {
+			color: rgb(255, 255, 255);
+			width: 100%;
+			padding: 6px 6px;
+			margin: 0px 0 40px 0px;
+			display: inline-block;
+			outline: none;
+			border-style: hidden;
+			border-bottom: 2px solid #ddd;
+			box-sizing: border-box;
+			background-color: #333;
+		}
+
+		input[type=submit] {
+			background-color: #00ff88;
+			color: black;
+			padding: 14px 20px;
+			margin: 8px 25%;
+			border: none;
+			border-radius: 2rem;
+			cursor: pointer;
+			width: 45%;
+			text-align: center;
+		}
+
+		.cont {
+			padding: 20px 2%;
+			margin: 40px auto;
+			line-height: 200%;
+			background-color: #333;
+			border: 5px solid;
+			border-image: linear-gradient(0deg, rgb(0, 140, 255), rgb(198, 66, 250)) 1;
+			color: #ddd;
+			width: 95%;
+			max-width: 800px;
+			box-sizing: border-box;
+			animation: borderAnimate 3s infinite alternate;
+		}
+
+		@keyframes borderAnimate {
+			0% {
+				border-image: linear-gradient(0deg, rgb(0, 140, 255), rgb(198, 66, 250)) 1;
+			}
+
+			25% {
+				border-image: linear-gradient(90deg, rgb(0, 140, 255), rgb(198, 66, 250)) 1;
+			}
+
+			50% {
+				border-image: linear-gradient(180deg, rgb(0, 140, 255), rgb(198, 66, 250)) 1;
+			}
+
+			75% {
+				border-image: linear-gradient(270deg, rgb(0, 140, 255), rgb(198, 66, 250)) 1;
+			}
+
+			100% {
+				border-image: linear-gradient(360deg, rgb(0, 140, 255), rgb(198, 66, 250)) 1;
+			}
+		}
+
+		.custom-shape-divider-top-1639747684 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			overflow: hidden;
+			line-height: 0;
+		}
+
+		.custom-shape-divider-top-1639747684 svg {
+			position: relative;
+			display: block;
+			width: calc(100% + 1.3px);
+			height: 54px;
+		}
+
+		.custom-shape-divider-top-1639747684 .shape-fill {
+			fill: #0084ff;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
 	<div class="custom-shape-divider-top-1639747684">
 		<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
 			<path
@@ -22,14 +142,28 @@
 				class="shape-fill"></path>
 		</svg>
 	</div>
+	<style>
+		.logo {
+			z-index: 10;
+			position: relative;
+			top: -20px;
+			filter: drop-shadow(0 10px 5px black);
+		}
+	</style>
 	<div class="container"
 		style="display: flex; justify-content: space-around; align-items: center; padding: 1.2rem; margin-top: 2rem;">
+		<div class="logo">
+			<a href="{% url 'home' %}"><img src="{% static 'main/img/logo/logo.svg' %}"></a>
+		</div>
+	</div>
+	<div class="container"
+		style="display: flex; justify-content: space-around; align-items: center; padding: 0; margin-bottom: 20px;">
 		<div class="navbar-brand">
-			<a href="{% url 'home' %}" class="button" style="font-size: 1rem; text-decoration: none; color: whitesmoke;padding: 1rem; border:2px solid whitesmoke;
-	animation: animate 5s linear infinite;">Zeitgeist</a>
+			<a href="{% url 'mainPage' %}" class="button" style="font-size: 1rem; text-decoration: none; color: whitesmoke;padding: 1rem; border:2px solid whitesmoke;
+	animation: animate 5s linear infinite;">CA Home</a>
 		</div>
 		<div class="pull-right">
-			<a href="{% url 'google_login' %}" class="button" style="font-size: 1rem; text-decoration: none; color: whitesmoke;padding: 1rem;
+			<a href="{% url 'google_login' %}?next={% url 'register' %}" class="button" style="font-size: 1rem; text-decoration: none; color: whitesmoke;padding: 1rem;
 				border:2px solid whitesmoke;
 	animation: animate 5s linear infinite;">Change
 				Account</a>
@@ -38,104 +172,44 @@
 	<div class="container">
 		<div class="pull-right"
 			style="display: flex; justify-content: space-evenly; align-items: center; padding: 1.2rem; flex-direction: column;">
-			<div style="color: whitesmoke; font-size: 1.2rem;">{{ request.user.email }}</div>
+			<div style="color: whitesmoke; font-size: 1.2rem; margin-bottom: 20px;">{{ request.user.email }}</div>
 			<a href="{% url 'logout' %}" class="button"
-				style="margin-left: 0.6em; font-size: 1.1em; color: whitesmoke; text-decoration: none; border: 2px solid whitesmoke; padding: 0.5rem; margin-right: 50px;">Logout</a>
-		</div> 
-	</div>
-	</div>
-	</nav>
-</head>
-
-<body>
-	<section class="hero-wrap" style="height: auto; padding-bottom: 30px">
-		<div class="container form-group campus-amb-header">
-			<div class="row">
-				<div class="card col-md-8 offset-md-2" style="padding: 3%">
-					<style>
-						*{
-							font-family: 'Permanent Marker', cursive;
-							font-size: 1.1rem;
-						}
-						body {
-							background-color: #222327;
-							background-repeat: no-repeat;
-							background-position: center;
-							background-size: cover;
-							height: 100vh;
-							color: whitesmoke;
-						}
-
-						input[type=text],
-						input[type=tel],
-						select {
-							color: whitesmoke;
-							width: 100%;
-							padding: 12px 20px;
-							margin: 8px 0;
-							display: inline-block;
-							outline: none;
-							border-style: hidden;
-							border-bottom: 4px solid whitesmoke;
-							box-sizing: border-box;
-							background-color: #222327;
-						}
-
-						input[type=submit] {
-							background-color: #00ff88;
-							color: black;
-							padding: 14px 20px;
-							margin: 8px 25%;
-							border: none;
-							border-radius: 2rem;
-							cursor: pointer;
-							width:45%;
-							text-align: center;
-						}
-
-						form {
-							padding: 2rem;
-							background-color: #222327;
-							border: 5px solid;
-							border-image: linear-gradient(45deg, rgb(0, 140, 255), rgb(198, 66, 250)) 1;
-							color: white;
-							width: 50%;
-							margin: auto;
-						}
-
-						.custom-shape-divider-top-1639747684 {
-							position: absolute;
-							top: 0;
-							left: 0;
-							width: 100%;
-							overflow: hidden;
-							line-height: 0;
-						}
-
-						.custom-shape-divider-top-1639747684 svg {
-							position: relative;
-							display: block;
-							width: calc(100% + 1.3px);
-							height: 54px;
-						}
-
-						.custom-shape-divider-top-1639747684 .shape-fill {
-							fill: #0084ff;
-						}
-						.text-center{
-							margin: 5px 42%;
-						}
-					</style>
-					<h2 class="text-center">Registration Details</h2>
-					<form method="POST">
-						{% csrf_token %}
-						{{ campus_ambassador_registration_details_form }}<br>
-						<input type="submit" value="Register" style="font-size: 1.2rem;">
-					</form>
-				</div>
-			</div>
+				style="font-size: 1.1em; color: whitesmoke; text-decoration: none; border: 2px solid whitesmoke; padding: 0.5rem;">Logout</a>
 		</div>
-	</section>
+	</div>
+
+	<div class=" campus-amb-header">
+		<!-- <div class="row"> -->
+		<!-- <div class="card col-md-8 offset-md-2" style="padding: 3%"> -->
+
+		<h2 class="text-center">Registration Details</h2>
+		{% if form %}
+		<form method="POST" class="cont">
+			{% csrf_token %}
+			{{ form }}<br>
+			<label for="id_accept_campus_ambassador_policy"><input name="accept_campus_ambassador_policy" id="id_accept_campus_ambassador_policy" required="" type="checkbox"> I have read and accept the <a href="{% static 'CA/files/ca_policy_z22.pdf' %}" target="_blank" style="text-decoration: underline; color:rgb(207, 233, 245)">Campus Ambassador Policy</a></label>
+			<input type="submit" value="Register" style="font-size: 1.2rem;">
+		</form>
+		{% else %}
+		<div class="cont">
+			{{msg}}
+			<br>
+			Your UNIQUE CA CODE is: <font style="color:#54faac"><b>{{det.campusAmbassadorCode}}</b></font>
+			<br><br>
+			College: <font style="color:#65faff">{{det.collegeName}}</font><br>
+			Mobile Number: <font style="color:#65faff">{{det.mobileNumber}}</font><br>
+			Why Interested: <font style="color:#65faff">{{det.whyInterested}}</font><br>
+			Past Experience: <font style="color:#65faff">{{det.pastExperience}}</font><br>
+		</div>
+		{% endif %}
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- </div> -->
+		<!-- </div> -->
+	</div>
+
 </body>
 
 </html>

@@ -1,0 +1,13 @@
+{% load static %}
+
+Dear {{user.first_name}} {{user.last_name}}
+<br><br>
+You are successfully registered for Campus Ambassador program for Zeitgeist'22. We are excited for your journey with us.
+<br><br>
+Your UNIQUE CAMPUS AMBASSADOR CODE is <b>{{det.campusAmbassadorCode}}</b>. Please read the Campus Ambassador Policy <a href="{{link}}">here</a>.
+<br><br>
+We wish you best of luck. Give your best and earn exciting prizes !!!
+<br><br>
+Regards<br>
+Zeitgeist 2022 Public Relations Team<br>
+<img src="{% static 'main/logo/logo.svg' %}" style="width:90%; max-width:300px;">

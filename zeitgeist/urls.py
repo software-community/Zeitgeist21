@@ -15,18 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.views.generic.base import RedirectView
 from allauth.account.views import logout
 
 urlpatterns = [
-    path('', include('main.urls')),
-    path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(pattern_name = 'mainPage'), name='home'),
+    path('z22-admin-iitrpr/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('Campus-Ambassador/', include('CA.urls')),
+    path('campus_ambassador/', include('CA.urls')),
 
     # Login/Logout
     # Use /acounts/google/login/?next=/<url> to login
     # Use /acounts/logout/?next=/<url> to logout
     path('accounts/', include('allauth.socialaccount.providers.google.urls')),
     path('accounts/logout/', logout, name="logout"),
+
 ]

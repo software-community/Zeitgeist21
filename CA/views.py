@@ -11,6 +11,7 @@ from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 import json,os
+from django.template.loader import render_to_string
 
 
 def mainPage(request):
@@ -20,13 +21,12 @@ def mainPage(request):
 @login_required
 def registerPage(request):
     try:
-        prev_registration_details = RegistrationDetail.objects.get(
-            user=request.user)
+        prev_registration_details = RegistrationDetail.objects.get(user=request.user)
     except RegistrationDetail.DoesNotExist:
         prev_registration_details = None
 
     if prev_registration_details:
-        return render(request, 'CA/alreadyRegistered.html')
+        return render(request, 'CA/register.html', {"msg":"You have already registered for this program.","det":prev_registration_details})
     request.user.email = SocialAccount.objects.get(
         user=request.user).extra_data.get("email")
     request.user.save()
@@ -39,28 +39,29 @@ def registerPage(request):
             new_campus_ambassador_registration.user = request.user
             new_campus_ambassador_registration.campusAmbassadorCode = (
                "Z22-CA"+ str(request.user.id).zfill(4))
-            #new_campus_ambassador_registration.save()
+            # new_campus_ambassador_registration.save()
             send_mail(
-                'Successful Registration for Campus Ambassador program for Zeitgeist 2k22',
-                'Dear ' + str(request.user.first_name) + ' ' + str(request.user.last_name) + '\n\nYou are successfully registered for Campus Ambassador program for Zeitgeist 2k22. We are excited for your journey with us.\n\nYour CAMPUS AMBASSADOR CODE is ' + str(
-                    new_campus_ambassador_registration.campusAmbassadorCode) + '. Please read the Campus Ambassador Policy here - https://' + request.get_host() + static('campus_ambassador/CA.pdf') + '.\n\nWe wish you best of luck. Give your best and earn exciting prizes !!!\n\nRegards\nZeitgeist 2022 Public Relations Team',
-                'zeitgeist.pr@iitrpr.ac.in',
-                [request.user.email],
+                "Successful Registration for Campus Ambassador program for Zeitgeist'22",
+                from_email='zeitgeist.pr@iitrpr.ac.in',
+                message='',
+                recipient_list=[request.user.email],
                 fail_silently=False,
+                html_message=render_to_string('CA/register_mail.html', {'user': request.user, 'det':new_campus_ambassador_registration, 'link':request.get_host() + static('CA/files/ca_policy_z22.pdf')})
             )
             updateCAgoogleSheet(request,new_campus_ambassador_registration)
-            return render(request, 'CA/success.html')
+            return render(request, 'CA/register.html', {"msg":"You have registered yourself successfully. For future reference, you are expected to remember this code.","det":new_campus_ambassador_registration})
     else:
         campus_ambassador_registration_details_form = CampusAmbassadorRegistrationDetailsForm()
 
     return render(request, 'CA/register.html',
-                  {'campus_ambassador_registration_details_form': campus_ambassador_registration_details_form})
+                  {'form': campus_ambassador_registration_details_form})
 
 
 def updateCAgoogleSheet(request,new_campus_ambassador_registration):
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
     
     credentials = None
+    print(json.loads(os.environ.get('CA_SHEET')))
     credentials = service_account.Credentials.from_service_account_info(
         json.loads(os.environ.get('CA_SHEET')), scopes=SCOPES)
 

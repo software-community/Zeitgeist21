@@ -6,276 +6,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Ambassador</title>
+    <title>Campus Ambassador | Zeitgeist'22</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
-        @font-face {
-            font-family: 'poe';
-            src: url('{% static "main/fonts/pieces_of_eight.ttf" %}');
-        }
-        html {
-            font-size: 62.5%;
-        }
-
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        :root {
-            --bg-default: #222327;
-            --primary-white: #fff;
-            --primary-red: #00FDFF;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: var(--bg-default);
-        }
-
-        .navigation {
-            width: 360px;
-            height: 70px;
-            background: var(--primary-white);
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            padding: 0 20px;
-        }
-
-        .navigation .listWrap {
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .navigation .listWrap li {
-            width: 70px;
-            height: 70px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .navigation .listWrap li a {
-            text-decoration: none;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            font-weight: 500;
-            width: 100%;
-        }
-
-        .navigation .listWrap li a:hover {
-            text-decoration: none;
-        }
-
-        .navigation .listWrap li a .icon {
-            position: relative;
-            display: block;
-            line-height: 75px;
-            text-align: center;
-            transition: 0.5s;
-            color: var(--bg-default);
-        }
-
-        .navigation .listWrap li a .icon ion-icon {
-            font-size: 2.2rem;
-        }
-
-        .navigation .listWrap li a .text {
-            position: absolute;
-            color: var(--bg-default);
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            transition: 0.5s;
-            transform: translateY(20px);
-            opacity: 0;
-            z-index: 1;
-        }
-
-        .navigation .listWrap li:active a .icon,
-        .navigation .listWrap li.active a .icon {
-            color: var(--primary-white);
-            transform: translateY(-32px);
-        }
-
-        .navigation .listWrap li:active a .text,
-        .navigation .listWrap li.active a .text {
-            opacity: 1;
-            transform: translateY(10px);
-        }
-
-        .navigation .listWrap li.indicator {
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            top: -50%;
-            border-radius: 50%;
-            border: 6px solid var(--bg-default);
-            background: var(--primary-red);
-            transition: 0.3s;
-            z-index: 0;
-        }
-
-        .navigation .listWrap li.indicator:before,
-        .navigation .listWrap li.indicator:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            background: blue;
-            background: transparent;
-        }
-
-        .navigation .listWrap li.indicator:after {
-            right: -22px;
-            box-shadow: -1px -10px 0 0 var(--bg-default);
-            border-top-left-radius: 20px;
-        }
-
-        .navigation .listWrap li.indicator:before {
-            left: -22px;
-            box-shadow: 1px -10px 0 0 var(--bg-default);
-            border-top-right-radius: 20px;
-        }
-
-        .navigation .listWrap li:nth-child(1).active~.indicator {
-            transform: translateX(calc(70px * 0));
-        }
-
-        .navigation .listWrap li:nth-child(2).active~.indicator {
-            transform: translateX(calc(70px * 1 + (6px * 2)));
-        }
-
-        .navigation .listWrap li:nth-child(3).active~.indicator {
-            transform: translateX(calc(70px * 2 + (6px * 4) + 1px));
-        }
-
-        .navigation .listWrap li:nth-child(4).active~.indicator {
-            transform: translateX(calc(70px * 3 + (6px * 6) + 2px));
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .custom-shape-divider-top-1639764548 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-
-        .custom-shape-divider-top-1639764548 svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 56px;
-        }
-
-        .custom-shape-divider-top-1639764548 .shape-fill {
-            fill: #0B75F1;
-        }
-
-         .custom-shape-divider-bottom-1639749638 {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
-        }
-
-        .custom-shape-divider-bottom-1639749638 svg {
-            position: relative;
-            display: block;
-            width: calc(122% + 1.3px);
-            height: 160px;
-        }
-
-        .custom-shape-divider-bottom-1639749638 .shape-fill {
-            fill: #0B75F1;
-        } 
-        
-
-        @keyframes bounce {
-            0% {
-                transform: scale(1, 1) translateY(0);
-            }
-
-            10% {
-                transform: scale(1.1, .9) translateY(0);
-            }
-
-            30% {
-                transform: scale(.9, 1.1) translateY(-55px);
-            }
-
-            50% {
-                transform: scale(1.05, .95) translateY(0);
-            }
-
-            58% {
-                transform: scale(1, 1) translateY(-7px);
-            }
-
-            65% {
-                transform: scale(1, 1) translateY(0);
-            }
-
-            100% {
-                transform: scale(1, 1) translateY(0);
-            }
-        }
-
-        .c {
-            animation: bounce 2s ease infinite;
-            font-family: 'poe';
-        }
-
-        .a {
-            animation: bounce 2s ease infinite .1s;
-            font-family: 'poe';
-        }
-    </style>
+    <link href="{% static 'CA/css/ca.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/heading.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'main/img/logo/fav.svg' %}" />
 </head>
 
 <body>
-    <div class="custom-shape-divider-top-1639764548">
+    <div class="waves custom-shape-divider-top-1639764548">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
                 d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                opacity=".25" class="shape-fill"></path>
+                class="shape-fill one"></path>
             <path
                 d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                opacity=".5" class="shape-fill"></path>
+                class="shape-fill two"></path>
             <path
                 d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                class="shape-fill"></path>
+                class="shape-fill three"></path>
         </svg>
     </div>
-    <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+    <div class="container"
+        style="display: flex; flex-direction: column; align-items: center; position: absolute; top: 10vh; margin:0 auto; left:0; right: 0;">
+        <style>
+            .logo {
+                z-index: 10;
+                position: relative;
+                top: -20px;
+                filter: drop-shadow(0 10px 5px black);
+            }
+        </style>
+        <div class="logo">
+            <a href="{% url 'home' %}"><img src="{% static 'main/img/logo/logo.svg' %}"></a>
+        </div>
         <div class="navigation">
             <ul class="listWrap">
                 <li class="list active">
@@ -283,7 +49,7 @@
                         <i class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </i>
-                        <span class="text"><a href="/">Home</a></span>
+                        <span class="text"><a href="{% url 'mainPage' %}">CA</a></span>
                     </a>
                 </li>
                 <li class="list">
@@ -299,7 +65,7 @@
                         <i class="icon">
                             <ion-icon name="person-outline"></ion-icon>
                         </i>
-                        <span class="text"><a href="{% url 'about' %}">About Us</a></span>
+                        <span class="text"><a href="{% url 'about' %}">About</a></span>
                     </a>
                 </li>
                 <li class="list">
@@ -313,26 +79,36 @@
                 <li class="indicator"></li>
             </ul>
         </div>
-        <br>
-        <br>
-        <div class="bouncing-text" style="display:flex; color: white; margin-top: 5rem; flex-wrap: wrap;">
+        <div class="bouncing-text" style="display:flex; color: rgb(204, 228, 255); margin-top: 5rem; flex-wrap: wrap;">
             <div class="c" style="font-size: 15rem;">C</div>
             <div class="a" style="font-size: 15rem;">A</div>
         </div>
     </div>
-     <div class="custom-shape-divider-bottom-1639749638">
+    <div class="ca">
+        <svg class="heading-style">
+            <text x="50%" y="60%" text-anchor="middle" class="def">
+                Campus
+            </text>
+        </svg>
+        <svg class="heading-style">
+            <text x="50%" y="60%" text-anchor="middle" class="def">
+                Ambassador
+            </text>
+        </svg>
+    </div>
+    <div class="waves custom-shape-divider-bottom-1639749638">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
                 d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                opacity=".25" class="shape-fill"></path>
+                class="shape-fill one"></path>
             <path
                 d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                opacity=".5" class="shape-fill"></path>
+                class="shape-fill two"></path>
             <path
                 d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                class="shape-fill"></path>
+                class="shape-fill three"></path>
         </svg>
-    </div> 
+    </div>
     <script>
         const listItem = document.querySelectorAll('.list');
 

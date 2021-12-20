@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 
 import json
 
-ENV_PATH = os.path.join(".", ".env")
+ENV_PATH = '../../../virtualenv/Z22/.env'
 load_dotenv(ENV_PATH)
 
 

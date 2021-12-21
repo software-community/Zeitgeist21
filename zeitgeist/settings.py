@@ -18,9 +18,8 @@ from dotenv import load_dotenv
 
 import json
 
-if os.environ.get('ENV')==None:
-    ENV_PATH = os.path.join(".", ".env")
-    load_dotenv(ENV_PATH)
+ENV_PATH = os.path.join(".", ".env")
+load_dotenv(ENV_PATH)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'users',
     'CA',
     'api',
+    'TSP'
 ]
 
 MIDDLEWARE = [

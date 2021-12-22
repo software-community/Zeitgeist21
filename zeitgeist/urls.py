@@ -22,6 +22,7 @@ urlpatterns = [
     path('', RedirectView.as_view(pattern_name = 'mainPage'), name='home'),
     path('z22-admin-iitrpr/', admin.site.urls),
     # path('api/', include('api.urls')),
+    path('TSP/', include('TSP.urls')),
     path('campus_ambassador/', include('CA.urls')),
 
     # Login/Logout

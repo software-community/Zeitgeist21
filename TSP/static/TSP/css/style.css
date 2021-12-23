@@ -1,5 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+@font-face {
+    font-family: "poe";
+    src: url('../../main/fonts/pieces_of_eight.ttf');
+}
+
 html {
     overflow-x: hidden
+}
+
+body {
+    background-image: url("../img/bubble.gif");
 }
 
 .primary-black--hover {
@@ -70,7 +80,7 @@ a:hover {
 }
 
 .main-back {
-    background-image: url(../img/bg.jpg)
+    background-image: url(../img/exam2.jpg)
 }
 
 .h1,
@@ -146,7 +156,7 @@ h5 {
 }
 
 .about-advitiya {
-    padding: 2.5em 0
+    padding: 2.5em 0;
 }
 
 .tsbutton {
@@ -202,6 +212,37 @@ h5 {
     background-color: #63c7fe;
     background-image: url('../img/button_bg.png'), url('../img/button_bg.png'), -moz-radial-gradient( center bottom, circle, rgba(109, 217, 250, 1) 0, rgba(109, 217, 250, 0) 100px), -moz-linear-gradient(#63c7fe, #58bef7);
     background-image: url('../img/button_bg.png'), url('../img/button_bg.png'), -webkit-gradient( radial, 50% 100%, 0, 50% 100%, 100, from(rgba(109, 217, 250, 1)), to(rgba(109, 217, 250, 0))), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#63c7fe), to(#58bef7));
+}
+
+.aboutTSP {
+    font-weight: 1200;
+    color: #fff;
+    font-family: 'poe';
+    background: url('https://cdn.wallpapersafari.com/77/68/v9Vq3k.jpg') center center;
+    font-size: 5rem;
+    background-size: 500px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.incentives {
+    font-weight: 1200;
+    color: #fff;
+    font-family: 'poe';
+    background: url('https://cdn.wallpapersafari.com/77/68/v9Vq3k.jpg') center center;
+    font-size: 5rem !important;
+    background-size: 500px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.card {
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 @media (min-width:768px) {
@@ -442,10 +483,18 @@ h5 {
 .site-navbar {
     margin-bottom: 0;
     z-index: 1999;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.90);
     top: 0;
     width: 100%;
     padding: 1rem
+}
+
+.perks {
+    background-color: rgba(0, 0, 0, 0.90) !important;
+}
+
+.site-footer {
+    background-color: rgba(0, 0, 0, 0.90) !important;
 }
 
 .site-navbar .toggle-button {
@@ -1761,16 +1810,21 @@ h5 {
     }
 }
 
+.media-icons {
+    margin: 0 8px 0 0;
+}
+
 .perks {
     background: #000;
     margin: 0;
-    width: 100%
+    width: 100%;
 }
 
 .perks-heading div {
     color: red;
     font-size: 50px;
-    font-weight: bolder!important
+    font-weight: bolder!important;
+    margin-bottom: 2.5%;
 }
 
 .perks-list {
@@ -1783,7 +1837,7 @@ h5 {
 
 .wrapper {
     width: 30%;
-    height: 350px
+    height: 350px;
 }
 
 .wrapper p {

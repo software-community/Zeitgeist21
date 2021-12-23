@@ -9,25 +9,78 @@
   <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}">
 
   <link href="{% static 'TSP/css/style.css' %}" rel="stylesheet">
-  <title>TSP</title>
+  <title>TSP | Zeitgeist'22</title>
   <link rel="icon" type="image/png" href="{% static 'main/img/logo/fav.svg' %}" />
 </head>
 
 <body>
+
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
 
   <!--NAVBAR-->
   <header class="site-navbar" role="banner">
     <div class="container">
       <div class="row">
         <div class="col-6 text-left">
-          <a href="{% url 'home' %}"><img src="{% static 'main_page/img/logo/logo_full.png' %}"
+          <a href="{% url 'home' %}"><img class="logo" src="{% static 'main/img/logo/logo.svg' %}"
               class='nav-brand-logo' alt="" srcset=""></a>
         </div>
 
         <div class="col-6 text-right">
 
 
-          <button onclick="popup('tsp');" class="tsbutton">Register Now</button><noscript id="tsNoJsMsg">Javascript on
+          <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf6E2NdNJWgqMvW6wONud9O-vZSDggf2uUBKnGhghHGusVaEg/viewform?usp=sf_link', '_blank');" class="tsbutton">Register Now</button><noscript id="tsNoJsMsg">Javascript on
             your browser is not enabled.</noscript>
           <script src="https://www.townscript.com/popup-widget/townscript-widget.nocache.js"
             type="text/javascript"></script>
@@ -40,21 +93,22 @@
 
   <div class="ftco-blocks-cover-1">
     <div class="ftco-cover-1 main-back overlay">
-        <div class="container">
+        {% comment %} <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class='main-heading'></div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
+        <span class="middle-TSP">Techno School Program</span>
     </div>
 </div>
 
-<div class="container about-advitiya">
+<div class="container about-advitiya" style="color: #fff;">
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-8">
-            <h2 class="mb-4"><strong>About TSP</strong></h2>
-            <p style="text-align:justify; font-size:1.3em">
+            <h2 class="mb-4 aboutTSP"><strong>About TSP</strong></h2>
+            <p style="text-align:justify; font-size:1.3em;">
                 Zeitgeist 2022 is proud to announce its second edition of School Outreach Program: <strong>Techno School Program(TSP)</strong>. 
                 TSP includes <strong>Zeitgeist open Olympiad, Teckwalk and Junior Scientist Competition.<strong> Zeitgeist open Olympiad will be a two-phase competition with talented students from prestigious schools participating in two categories namely:
                <strong>  
@@ -63,23 +117,44 @@
                     Category 2: Class XI & XII<br>
                 </strong>
 
-                <center><font style="font-size:20px; font-weight: 600;">Zeitgeist Open Olympiad</font></center>
+                <br>
+                <center><font style="font-weight: 1200;
+                    color: #fff;
+                    font-family: 'poe';
+                    background: url('https://cdn.wallpapersafari.com/77/68/v9Vq3k.jpg') center center;
+                    font-size: 3rem;
+                    background-size: 500px;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-weight: 800;
+                    letter-spacing: 2px;">Zeitgeist Open Olympiad</font></center>
                 
+                <br>
                 <ul style="text-align: justify; font-size: 18px;">
                     <li>Prize money worth ₹25K will be distributed among the winners of both categories.</li>
                     <li>Registration fee = ₹50</li>
                     <li>Top 25 students will be chosen for the finale.</li>
-                    <li><b>Preliminary test will be conducted in last week of January.</b></li>
+                    <li><b>Preliminary test will be conducted in last week of January in online mode.</b></li>
                     <li>Tech walk (Technical Fest and a Campus visit by the students).</li>
                     <li>Exciting cash prizes and goodies for the winner.</li>
                     <li>Certificate of appreciation and vouchers for all students.</li>
-                    <li>A special talk regarding career and future by IITANS and various professionals</li>
-                    <li>Finale exam will be in <b>second week of February.</b></li>
+                    <li>A special talk regarding career and future by IITIANS and various professionals</li>
+                    <li>Final exam will be on <b>12th February in Zeitgeist.</b></li>
                 </ul>
                 <br>
-
-                <center><font style="font-size:20px; font-weight: 600;">Junior Scientist Competition</font></center>
+                <br>
+                <center><font style="font-weight: 1200;
+                    color: #fff;
+                    font-family: 'poe';
+                    background: url('https://cdn.wallpapersafari.com/77/68/v9Vq3k.jpg') center center;
+                    font-size: 3rem;
+                    background-size: 500px;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-weight: 800;
+                    letter-spacing: 2px;">Junior Scientist Competition</font></center>
                 
+                <br>
                 <ul style="text-align: justify; font-size: 18px;">
                     <li>Registration fee = 100</li>
                     <li>Prize money worth 5K</li>
@@ -88,6 +163,7 @@
                 </ul>
                 <br>
                 
+                <br>
                 <font style="text-align: left; width:100%; display: block; font-size: 18px;">
                 For any queries, contact <b>Amit Bhuradia (9461797398), Harish (9571872245), Chena Ram (9649766876)</b>
                 </font>
@@ -122,7 +198,7 @@
     <div class="container perks-heading">
         <div class="row justify-content-center text-center">
             <div class="col-md-6">
-                <div class="mb-4">Incentives</div>
+                <div class="mb-4 incentives">Incentives</div>
             </div>
         </div>
     </div>
@@ -201,8 +277,8 @@
 
 <div class="container about-advitiya">
     <div class="row justify-content-center text-center mb-5">
-        <div class="col-md-6">
-            <h2 class="mb-4">What we expect of you...</h2>
+        <div class="col-md-6" style="color: #fff;">
+            <h2 class="mb-4" style="color: #fff;">What we expect of you...</h2>
             <p>School is expected to help us in the smooth conduction of the exam.
             </p>
         </div>
@@ -219,8 +295,8 @@
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="card" style="height:100%">
-                <img onclick="popup('tsp');" src="{% static 'TSP/img/register.png' %}" height="160" width="12" class="card-img-top" alt="..." style="cursor: pointer;">
+            <div class="card">
+                <img onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf6E2NdNJWgqMvW6wONud9O-vZSDggf2uUBKnGhghHGusVaEg/viewform?usp=sf_link', '_blank');" src="{% static 'TSP/img/register.png' %}" height="160" width="12" class="card-img-top" alt="..." style="cursor: pointer;">
                 <div class="card-body">
                     <h3 class="card-title">Registration of Students</h3>
                     <p class="card-text">The school shall take the registration fees from the students and register them
@@ -248,21 +324,23 @@
       <div class="row">
         <div class="col-lg-6 col-xs-12 about-company">
           <h2>About Us</h2>
+          <br>
           <p style="font-size:15px;">The Techno-Cultural festival of IIT ropar “Zeitgeist”, marks a 3 day
             journey consisting of various competitions spread across Robotics, Management, Coding,
             Designing, Gaming, Astronomy, Aero-modelling and Quizzing. Apart from
             the competitions, talks and workshops are few of the interesting events of the fest. The
             upcoming Zeitgeist is going to be held in April 2021.</p>
-          <p><a href="https://www.facebook.com/advitiya.iitrpr/"><i class="fab fa-facebook-square fa-3x mr-1"></i></a><a
-              href="https://twitter.com/advitiyaiitrpr?lang=en"><i class="fab fa-twitter-square fa-3x"></i></a><a
-              href="https://www.instagram.com/advitiya_iitrpr/?hl=en"><i class="fab fa-instagram ml-1 fa-3x"></i></a>
+            <br>
+          <p ><a class="media-icons" href="https://www.facebook.com/advitiya.iitrpr/"><i class="fab fa-facebook-square fa-3x mr-1"></i></a>
+            <a class="media-icons" href="https://twitter.com/advitiyaiitrpr?lang=en"><i class="fab fa-twitter-square fa-3x"></i></a>
+            <a class="media-icons" href="https://www.instagram.com/advitiya_iitrpr/?hl=en"><i class="fab fa-instagram ml-1 fa-3x"></i></a>
           </p>
         </div>
         <div class="col-lg-2 col-xs-12 about-company"></div>
         <div class="col-lg-4 col-xs-12 location">
           <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-          <p> Birla Seeds Farms, Rupnagar, Punjab 140111</p>
-          <p class="mb-0"><i class="fa fa-phone mr-3"></i>09306359202</p>
+          <br>
+          <p> Indian Institute of Technology Ropar Rupnagar, Punjab - 140001, India</p>
           <p><i class="far fa-envelope-open mr-3"></i>zeitgeist.pr@iitrpr.ac.in</p>
         </div>
       </div>
